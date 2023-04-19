@@ -39,9 +39,9 @@ Typer is FastAPI's little sibling. And it's intended to be the FastAPI of CLI in
     --You will also need an ASGI server, for production such as Uvicorn
     -- pip install uvicorn
 
-     Run the server with:
+     Run the Fast API server with:
      ======================
 
          ==> uvicorn app:app --reload
 
-          http://127.0.0.1:8000/docs
+         ==> http://127.0.0.1:8000/docs
