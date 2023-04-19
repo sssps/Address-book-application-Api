@@ -31,7 +31,8 @@ Then after install all packgae:
 
 after install all package run the python program:
 ================================================
-  - first all create db and table run the app.py python file
+  - create db and create table run the python file:
+     ==> python app.py
 
 
 Typer is FastAPI's little sibling. And it's intended to be the FastAPI of CLI install:
