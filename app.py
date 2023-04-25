@@ -162,7 +162,7 @@ def distance(distance, latitude, longitude, req: Request,session: Session = Depe
         :param longitude:get the longitude value
         :param geolocator: geopy is a Python client for several popular geocoding web services.
                            geopy makes it easy for Python developers to locate the coordinates of addresses, cities, countries, and landmarks across the globe using third-party geocoders and other data sources.
-        :return: get the location coorduinates
+        :return: get the location coordinates record
         """
         location_coordinates = []
         request_args = dict(req.query_params)
