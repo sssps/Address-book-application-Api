@@ -1,5 +1,4 @@
 
-
 #  ------------------------------------------------------------------------------------------------
 # This is an API. which are having four end points to perform the CRUD operation with SQLite
 #  ------------------------------------------------------------------------------------------------
@@ -49,7 +48,7 @@ def get_alladdress(session: Session = Depends(get_db)):
     try:
         """
         This method will return all address details which are present in database
-        :param db: database session object
+        :param get_db: database session object
         :return: all the row from database
         """
         items = session.query(models.Address).all()
@@ -67,7 +66,7 @@ def get_single_address(id:int, session: Session = Depends(get_db)):
     try:
         """
         This method will return single address details based on id
-        :param db: database session object
+        :param get_db: database session object
         :param id: serial id of record or Primary Key
         :return: data row if exist else None
         """
@@ -87,7 +86,7 @@ def add_address(item:schema.Address,  req: Request, session = Depends(get_db)):
     try:
         """
         this method will add a new record to database. and perform the commit and refresh operation to db
-        :param db: database session object
+        :param get_db: database session object
         :param address: Object of class schema.Address
         :return: a dictionary object of the record which has inserted
         """
@@ -110,7 +109,7 @@ def update_address(id:int, item:schema.Address, session = Depends(get_db)):
     try:
         """
         this method will update the database
-        :param db: database session object
+        :param get_db: database session object
         :param id: serial id of record or Primary Key
         :param item: Object of class schema.Address
         :return: updated address_book record
@@ -136,7 +135,7 @@ def delete_address(id:int, session = Depends(get_db)):
         try:
             """
             This will delete the record from database based on primary key
-            :param db: database session object
+            :param get_db: database session object
             :param id: serial id of record or Primary Key
             :return: None
             """
@@ -149,20 +148,21 @@ def delete_address(id:int, session = Depends(get_db)):
 
         return {"delete status": "success"}
 
-#o retrieve the addresses that are within a given distance and location coordinates.
+#retrieve the addresses that are within a given distance and location coordinates.
 @app.post("/distance")
 def distance(distance, latitude, longitude, req: Request,session: Session = Depends(get_db)):
     try:
         """
         API Users should also be able to retrieve the addresses that are within a given distance and
         location coordinates
+        :param get_db: database session object
         :param location_coordinates: store the new coordinate data
         :param distance: get the distance value
         :param latitude: get the latitude value
         :param longitude:get the longitude value
         :param geolocator: geopy is a Python client for several popular geocoding web services.
                            geopy makes it easy for Python developers to locate the coordinates of addresses, cities, countries, and landmarks across the globe using third-party geocoders and other data sources.
-        :return: location coorduinates
+        :return: get the location coorduinates
         """
         location_coordinates = []
         request_args = dict(req.query_params)
